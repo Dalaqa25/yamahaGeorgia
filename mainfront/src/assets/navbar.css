@@ -1,0 +1,68 @@
+nav {
+    display: flex;
+    justify-content: center;
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none; 
+    width: 85%;
+    margin: 4vh;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: inherit; 
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+}
+
+.logo {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logoSVG {
+    width: 65px;
+    height: 65px;
+}
+
+.links {
+    display: flex;
+    padding-right: 20px;
+    gap: 30px;
+}
+
+.links li {
+    padding: 10px;
+}
+
+.links li:hover {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
