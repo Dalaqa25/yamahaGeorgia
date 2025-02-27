@@ -9,7 +9,7 @@ export default function Navbar() {
                 <li>
                     <Link className="logo" to="/">
                         <img className="logoSVG" src={yamahaSVG} alt="" />
-                        <h2>YAMAH</h2>
+                        <h2>YAMAHA</h2>
                     </Link>
                 </li>
 
