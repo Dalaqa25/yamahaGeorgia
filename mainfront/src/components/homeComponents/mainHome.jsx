@@ -1,6 +1,10 @@
 import '../../assets/home.css';
 import { Link } from 'react-router-dom';
+import r6Img from '../../assets/images/r6.png'
+import r1Img from '../../assets/images/r1.png'
+import r6FImg from '../../assets/images/r6fliped.png'
 import { useState, useEffect } from 'react'
+
 
 export default function MainHome() {
 
@@ -32,6 +36,13 @@ export default function MainHome() {
                         Shop Motorcycles
                 </Link>
             </div>
+
+            <div className='mainImages'>
+                <img src={r6Img} alt="" />
+                <img src={r1Img} alt="" />
+                <img src={r6FImg} alt="" />
+            </div>
+
         </>
     )
 }
