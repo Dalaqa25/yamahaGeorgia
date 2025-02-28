@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 
 export default function MainHome() {
 
-    const h2Text = ["faster.", "better.", "safely.", "more reliable."]
+    const h2Text = ["faster.", "better.", "safely."]
     const [currentIndex, setCurrentIndex] = useState(0)
     const [fade, setFade] = useState(true)
 

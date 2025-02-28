@@ -56,10 +56,14 @@
 .mainImages {
     overflow: hidden;
     margin-top: 10vh;
+    margin-bottom: 10vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .mainImages img{
-    width: 35%;
+    width: 30%;
+    padding: 10px;
+    filter: drop-shadow(7px 13px 5px rgba(0, 0, 0, 0.5));
+    border-radius: 10px;
 }
