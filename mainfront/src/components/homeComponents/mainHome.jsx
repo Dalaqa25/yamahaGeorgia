@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import r6Img from '../../assets/images/r6.png'
 import r1Img from '../../assets/images/r1.png'
 import r6FImg from '../../assets/images/r6fliped.png'
+import engineImg from '../../assets/images/engineIMG.png'
 import { useState, useEffect } from 'react'
 
 
@@ -43,6 +44,14 @@ export default function MainHome() {
                 <img src={r6FImg} alt="" />
             </div>
 
+            <div className='middlePart'>
+                <div className='middleTxt'>
+                    <h1>Less.</h1>
+                    <h1>More power</h1>
+                    <p>Yamaha is renowned for its high-performance and reliable engines across motorcycles, marine applications, ATVs, and power equipment, With decades of engineering expertise.</p>
+                </div>
+                <img src={engineImg} alt="" />
+            </div>
         </>
     )
 }
