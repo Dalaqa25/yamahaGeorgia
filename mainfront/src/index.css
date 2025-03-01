@@ -6,3 +6,9 @@
 body {
     background-color: #f1f3f7;
 }
+
+.bodyMain {
+    width: 80%;
+    margin: 20vh auto 0vh auto;
+    letter-spacing: 0px;
+}
