@@ -21,12 +21,18 @@ ul {
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: all 0.3s;
+    transition: all 0.5s;
 }
 
 ul.scrolled {
     background-color: rgba(255, 255, 255, 0.8); 
     margin: 1vh;
+}
+
+ul.switched {
+    width: 100%;
+    max-width: none;
+    margin: 0vh;
 }
 
 nav ul li a {
@@ -65,15 +71,4 @@ nav ul li a:hover {
     border-radius: 10px;
     transition: all 0.3s;
 }
-
-
-
-
-
-
-
-
-
-
-
 
