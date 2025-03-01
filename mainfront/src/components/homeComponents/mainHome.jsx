@@ -48,10 +48,16 @@ export default function MainHome() {
                 <div className='middleTxt'>
                     <h1>Less.</h1>
                     <h1>More power</h1>
-                    <p>Yamaha is renowned for its high-performance and reliable engines across motorcycles, marine applications, ATVs, and power equipment, With decades of engineering expertise.</p>
+                    <p>
+                        Yamaha is renowned for its high-performance and 
+                        reliable engines across motorcycles, marine applications, ATVs, and 
+                        power equipment, With decades of engineering expertise.
+                    </p>
                 </div>
                 <img src={engineImg} alt="" />
             </div>
+
+            
         </>
     )
 }
