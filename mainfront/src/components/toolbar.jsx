@@ -80,9 +80,27 @@ export default function Toolbar() {
                         </div>
                     </div>
 
-                    <h2 style={{marginTop:'5vh', marginBottom:'1vh'}}>Products</h2>
+                    <h2 style={{ marginTop: '5vh', marginBottom: '1vh' }}>Products</h2>
                     <hr />
 
+                    <div className='checkboxes'>
+                        <div className='checkbox'>
+                            <input type="checkbox" id="checkbox1" />
+                            <label htmlFor="checkbox1">Option 1</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input type="checkbox" id="checkbox1" />
+                            <label htmlFor="checkbox1">Option 2</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input type="checkbox" id="checkbox1" />
+                            <label htmlFor="checkbox1">Option 3</label>
+                        </div>
+                        <div className='checkbox'>
+                            <input type="checkbox" id="checkbox1" />
+                            <label htmlFor="checkbox1">Option 3</label>
+                        </div>
+                    </div>
                 </form>
             </div>
         </>
