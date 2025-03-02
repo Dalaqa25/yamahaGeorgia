@@ -19,8 +19,8 @@ export default function MainHome() {
             setTimeout(() => {
                 setCurrentIndex((prevIndex) => (prevIndex + 1) % h2Text.length)
                 setFade(true)
-            }, 500)
-        }, 5000)
+            }, 300)
+        }, 3000)
 
         return () => clearInterval(interval)
     }, [h2Text.length])
