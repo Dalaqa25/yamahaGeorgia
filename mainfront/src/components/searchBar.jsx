@@ -5,6 +5,7 @@ import { useState } from 'react';
 export default function SearchBar() {
     const [input, setInput] = useState('');
     const [results, setResults] = useState([]);
+    const [placeholder, setPlaceholder] = useState("Search for product")
 
     const fetchData = (value) => {
         fetch("https://jsonplaceholder.typicode.com/users")
@@ -34,9 +35,16 @@ export default function SearchBar() {
                 <input
                     type="text"
                     style={{ textAlign: 'center' }}
-                    placeholder="Search for a product"
+                    placeholder={placeholder}
                     value={input}
                     onChange={(e) => handleChange(e.target.value)}
+                    onFocus={() => setPlaceholder("")}
+                    onBlur={(e) => {
+                        if (e.target.value === "")
+                        {
+                            setPlaceholder("Search for product")
+                        }
+                    }}
                 />
                 <img src={searchSVG} alt="Search Icon" />
             </div>
