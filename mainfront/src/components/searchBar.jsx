@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 export default function SearchBar() {
     const [input, setInput] = useState('');
+    const [results, setResults] = useState([]);
 
     const fetchData = (value) => {
         fetch("https://jsonplaceholder.typicode.com/users")
@@ -15,7 +16,7 @@ export default function SearchBar() {
                       user.name && 
                       user.name.toLowerCase().includes(value.toLowerCase());
                 });
-                console.log(filteredData);
+                setResults(filteredData); 
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -38,6 +39,13 @@ export default function SearchBar() {
                     onChange={(e) => handleChange(e.target.value)}
                 />
                 <img src={searchSVG} alt="Search Icon" />
+            </div>
+            <div className="search-result-list">
+                {results.map((result, index) => (
+                    <div key={index} className="search-result-item">
+                        {result.name}
+                    </div>
+                ))}
             </div>
         </div>
     );
