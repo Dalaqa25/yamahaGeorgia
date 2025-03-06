@@ -13,7 +13,7 @@ export default function SalesList() {
                         onMouseEnter={() => setIshoverd(true)}
                         onMouseLeave={() => setIshoverd(false)}>
                     <img src={r6img} alt="r6img" />
-                    <div style={{display:'flex', gap:'10px'}}>
+                    <div style={{display:'flex', marginTop:'1vh',gap:'10px'}}>
                         <p style={{color:'#000'}}>YZF R6</p>
                         <hr />
                         <p style={{color:'#000'}}>In stock</p>
