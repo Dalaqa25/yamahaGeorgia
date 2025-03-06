@@ -18,9 +18,6 @@ export default function SalesList() {
                         <hr />
                         <p style={{color:'#000'}}>In stock</p>
                     </div>
-                    {isHoverd && (
-                        <button className='readMoreBtn'>Learn more</button>
-                    )}
                 </div>
             </div> 
         </div>
