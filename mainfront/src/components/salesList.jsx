@@ -9,14 +9,21 @@ export default function SalesList() {
     return (
         <div className='main'>
             <div className='saleList-container'>
-                <div className='box'
-                        onMouseEnter={() => setIshoverd(true)}
-                        onMouseLeave={() => setIshoverd(false)}>
+                <div className='box' 
+                    onMouseEnter={() => setIshoverd(true)}
+                    onMouseLeave={() => setIshoverd(false)}
+                >
                     <img src={r6img} alt="r6img" />
                     <div style={{display:'flex', marginTop:'1vh',gap:'10px'}}>
-                        <p style={{color:'#000'}}>YZF R6</p>
-                        <hr />
-                        <p style={{color:'#000'}}>In stock</p>
+                    {!isHoverd ? (
+                        <div>
+                            <p style={{ color: "#000" }}>YZF R6</p>
+                            <hr />
+                            <p style={{ color: "#000" }}>In stock</p>
+                        </div>
+                        ) : (
+                        <button>Learn more</button>
+                        )}
                     </div>
                 </div>
             </div> 
