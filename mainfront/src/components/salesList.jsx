@@ -2,7 +2,7 @@ import '../../src/assets/sale.css'
 import r6img from '../../src/assets/images/r6.png'
 import { useState } from 'react'
 
-export default function SalesList() {
+export default function SalesList({name,status,image}) {
 
     const [ isHoverd, setIshoverd] = useState(false)
 
@@ -13,13 +13,13 @@ export default function SalesList() {
                     onMouseEnter={() => setIshoverd(true)}
                     onMouseLeave={() => setIshoverd(false)}
                 >
-                    <img src={r6img} alt="r6img" />
+                    <img src={image} alt="r6img" />
                     <div style={{display:'flex', marginTop:'1vh',gap:'10px'}}>
                     {!isHoverd ? (
                         <div className="itemName">
-                            <p style={{ color: "#000" }}>YZF R6</p>
+                            <p style={{ color: "#000" }}>{name}</p>
                             <hr />
-                            <p style={{ color: "#000",fontWeight:'bold' }}>In stock</p>
+                            <p style={{ color: "#000",fontWeight:'bold' }}>{status}</p>
                         </div>
                         ) : (
                         <button>Learn more</button>
