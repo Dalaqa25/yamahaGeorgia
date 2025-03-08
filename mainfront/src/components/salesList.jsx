@@ -16,10 +16,10 @@ export default function SalesList() {
                     <img src={r6img} alt="r6img" />
                     <div style={{display:'flex', marginTop:'1vh',gap:'10px'}}>
                     {!isHoverd ? (
-                        <div>
+                        <div className="itemName">
                             <p style={{ color: "#000" }}>YZF R6</p>
                             <hr />
-                            <p style={{ color: "#000" }}>In stock</p>
+                            <p style={{ color: "#000",fontWeight:'bold' }}>In stock</p>
                         </div>
                         ) : (
                         <button>Learn more</button>

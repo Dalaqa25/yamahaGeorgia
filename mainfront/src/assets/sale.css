@@ -1,6 +1,7 @@
 .main {
     display: flex;
     justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 } 
 
 .saleList-container {
@@ -25,8 +26,29 @@
     margin-bottom:5vh;
 } .box:hover {  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5); border-radius: 0px; }
 
+
 .box img {
     max-width: 70;
     max-height: 70%;
     filter: drop-shadow(0px 8px 10px);
+}
+
+.box button {
+    padding: 8px;
+    background-color: #0f0f0f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: medium;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.box button:hover {
+    background-color: #000;
+    padding: 8px 10px;
+}
+
+.itemName {
+    text-align: center;
 }
