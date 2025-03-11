@@ -1,4 +1,5 @@
 import '../../src/assets/searchbar.css';
+import SearchResult from './searchResult';
 import searchSVG from '../../src/assets/images/searchSVG.svg';
 import { useState } from 'react';
 
@@ -7,6 +8,7 @@ export default function SearchBar() {
     const [results, setResults] = useState([]);
     const [placeholder, setPlaceholder] = useState("Search for product");
     const [isOverlayVisible, setOverlayVisible] = useState(false);
+    const [searchResults, setSearchResults] = useState(false);
 
     const fetchData = (value) => {
         fetch("https://jsonplaceholder.typicode.com/users")
@@ -30,11 +32,17 @@ export default function SearchBar() {
         fetchData(value);
     };
 
+    function toggleSearchResults() {
+        setSearchResults(prevResults => !prevResults);
+    }
+
     return (
         <div className="search-bar-container">
-            {isOverlayVisible && <div className="overlay" onClick={() => setOverlayVisible(false)}></div>}
+            {isOverlayVisible && 
+                <div className="overlay" onClick={() => setOverlayVisible(false)}></div>
+            }
             <div className="search-bar">
-                <div className='search-bar-wrapper'>
+                <div className='search-bar-wrapper' onClick={toggleSearchResults}>
                     <input
                         type="text"
                         style={{ textAlign: 'center' }}
@@ -59,7 +67,8 @@ export default function SearchBar() {
                         <div key={index} className="search-result-item">
                             {result.name}
                         </div>
-                    ))}
+                    ))} 
+                   
                 </div>
             </div>
         </div>
