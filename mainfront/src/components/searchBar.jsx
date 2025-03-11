@@ -38,9 +38,7 @@ export default function SearchBar() {
 
     return (
         <div className="search-bar-container">
-            {isOverlayVisible && 
-                <div className="overlay" onClick={() => setOverlayVisible(false)}></div>
-            }
+            <div className={`overlay ${isOverlayVisible ? "show" : ""}`} onClick={() => setOverlayVisible(false)}></div>
             <div className="search-bar">
                 <div className='search-bar-wrapper' onClick={toggleSearchResults}>
                     <input
