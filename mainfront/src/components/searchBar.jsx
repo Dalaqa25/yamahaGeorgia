@@ -5,7 +5,8 @@ import { useState } from 'react';
 export default function SearchBar() {
     const [input, setInput] = useState('');
     const [results, setResults] = useState([]);
-    const [placeholder, setPlaceholder] = useState("Search for product")
+    const [placeholder, setPlaceholder] = useState("Search for product");
+    const [isOverlayVisible, setOverlayVisible] = useState(false);
 
     const fetchData = (value) => {
         fetch("https://jsonplaceholder.typicode.com/users")
@@ -30,30 +31,36 @@ export default function SearchBar() {
     };
 
     return (
-        <div className="search-bar">
-            <div className='search-bar-wrapper'>
-                <input
-                    type="text"
-                    style={{ textAlign: 'center' }}
-                    placeholder={placeholder}
-                    value={input}
-                    onChange={(e) => handleChange(e.target.value)}
-                    onFocus={() => setPlaceholder("")}
-                    onBlur={(e) => {
-                        if (e.target.value === "")
-                        {
-                            setPlaceholder("Search for product")
-                        }
-                    }}
-                />
-                <img src={searchSVG} alt="Search Icon" />
-            </div>
-            <div className="search-result-list">
-                {results.map((result, index) => (
-                    <div key={index} className="search-result-item">
-                        {result.name}
-                    </div>
-                ))}
+        <div className="search-bar-container">
+            {isOverlayVisible && <div className="overlay" onClick={() => setOverlayVisible(false)}></div>}
+            <div className="search-bar">
+                <div className='search-bar-wrapper'>
+                    <input
+                        type="text"
+                        style={{ textAlign: 'center' }}
+                        placeholder={placeholder}
+                        value={input}
+                        onChange={(e) => handleChange(e.target.value)}
+                        onFocus={() => {
+                            setPlaceholder("");
+                            setOverlayVisible(true);
+                        }}
+                        onBlur={(e) => {
+                            if (e.target.value === "") {
+                                setPlaceholder("Search for product");
+                            }
+                            setOverlayVisible(false);
+                        }}
+                    />
+                    <img src={searchSVG} alt="Search Icon" />
+                </div>
+                <div className="search-result-list">
+                    {results.map((result, index) => (
+                        <div key={index} className="search-result-item">
+                            {result.name}
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
