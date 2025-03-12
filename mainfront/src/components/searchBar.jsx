@@ -1,5 +1,7 @@
 import '../../src/assets/searchbar.css';
 import searchSVG from '../../src/assets/images/searchSVG.svg';
+import arrowSVG from '../../src/assets/images/arrow.svg'
+import noSearch from '../../src/assets/images/noSearch.svg'
 import { useState, useEffect, useRef } from 'react';
 
 export default function SearchBar({placeholderText}) {
@@ -70,16 +72,26 @@ export default function SearchBar({placeholderText}) {
                     </div>
                 </div>
                 <div className={`search-result-list ${searchResultVisible ? "showResult": "NotShowResult"}`}>
-                        {results.map((result, index) => (
-                            <div key={index} className="search-result-item">
-                                {result.name}
+                {input.trim() !== "" ? (
+                        results.length > 0 ? (
+                            results.map((result, index) => (
+                                <div key={index} className="search-result-item">
+                                    {result.name}
+                                </div>
+                            ))
+                        ) : (
+                            <div className='no-results-message' style={{textAlign:'center', fontWeight:'bolder', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+                                No results found
+                                <img style={{width:'250px'}} src={noSearch} alt="" />
                             </div>
-                        ))} 
-                        {defaultSearchResult.map((defaultResult, index) =>(
+                        )
+                    ) : (
+                        defaultSearchResult.map((defaultResult, index) => (
                             <div key={index} className='search-result-item'>
                                 {defaultResult}
                             </div>
-                        ))}
+                        ))
+                    )}
                 </div>
             </div>
             
