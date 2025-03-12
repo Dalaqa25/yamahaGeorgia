@@ -5,7 +5,7 @@ import r1 from '../assets/images/r1.png'
 export default function Motorcycles() {
     return (
         <div>
-            <SearchBar />
+            <SearchBar placeholderText="Search for Motorcycle"/>
             <SalesList name='YZF R1' status='In Stock' image={r1}/>
         </div>
     )

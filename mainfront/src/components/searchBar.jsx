@@ -1,14 +1,15 @@
 import '../../src/assets/searchbar.css';
-import SearchResult from './searchResult';
 import searchSVG from '../../src/assets/images/searchSVG.svg';
 import { useState } from 'react';
 
-export default function SearchBar() {
+export default function SearchBar({placeholderText}) {
     const [input, setInput] = useState('');
     const [results, setResults] = useState([]);
-    const [placeholder, setPlaceholder] = useState("Search for product");
+    const [placeholder, setPlaceholder] = useState(placeholderText);
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [searchResultVisible, setSearchResultVisible] = useState(false);
+
+    const defaultSearchResult = ["YZF R1", "YZF R7", "YZF R6", "YZF R3"]
 
     const fetchData = (value) => {
         fetch("https://jsonplaceholder.typicode.com/users")
@@ -51,7 +52,7 @@ export default function SearchBar() {
                             }}
                             onBlur={(e) => {
                                 if (e.target.value === "") {
-                                    setPlaceholder("Search for product");
+                                    setPlaceholder(placeholderText);
                                 }
                                 setOverlayVisible(false);
                             }}
@@ -65,6 +66,11 @@ export default function SearchBar() {
                                 {result.name}
                             </div>
                         ))} 
+                        {defaultSearchResult.map((defaultResult, index) =>(
+                            <div key={index} className='search-result-item'>
+                                {defaultResult}
+                            </div>
+                        ))}
                 </div>
             </div>
             

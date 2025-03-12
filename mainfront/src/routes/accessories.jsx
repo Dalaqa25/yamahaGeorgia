@@ -5,7 +5,7 @@ import helmetImg from '../assets/images/helmet.png'
 export default function Accessories() {
     return (
         <div>
-            <SearchBar />
+            <SearchBar placeholderText="Search for Accessories"/>
             <SalesList name='AGV PISTA' status='In Stock' image={helmetImg}/>
         </div>
     )

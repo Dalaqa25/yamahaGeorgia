@@ -1,5 +1,6 @@
 .search-bar-container {
     position: relative;
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
 }
 
 .search-bar {
@@ -55,7 +56,9 @@ input {
 
 .search-result-list {
     overflow-y: auto;
-    margin-left: 45%;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 50%;
     margin-top: 2vh;
     position: absolute;
     overflow-x: hidden;
@@ -64,7 +67,7 @@ input {
     transition: all 0.3s;
     border-radius: 8px;
     padding: 10px;
-
+    max-height: 50vh;
 }
 
 .showResult {
@@ -77,11 +80,10 @@ input {
 
 .search-result-item {
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    background-color: #f5f4f4;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 3px;
     cursor: pointer;
     transition: all 0.3s;
-}
-
-.search-result-item:hover {
-    scale: 1.01;
 }
