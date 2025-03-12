@@ -65,6 +65,7 @@ input {
     background-color: #fff;
     z-index: 2;
     transition: all 0.3s;
+    transform: translateY(20px);
     border-radius: 8px;
     padding: 10px;
     max-height: 50vh;
@@ -72,6 +73,7 @@ input {
 
 .showResult {
     opacity: 1;
+    transform: translateY(0px);
 }
 
 .NotShowResult {

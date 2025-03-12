@@ -1,6 +1,6 @@
 import '../../src/assets/searchbar.css';
 import searchSVG from '../../src/assets/images/searchSVG.svg';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function SearchBar({placeholderText}) {
     const [input, setInput] = useState('');
@@ -10,6 +10,15 @@ export default function SearchBar({placeholderText}) {
     const [searchResultVisible, setSearchResultVisible] = useState(false);
 
     const defaultSearchResult = ["YZF R1", "YZF R7", "YZF R6", "YZF R3"]
+
+    useEffect(() => {
+
+        let handle = () => {
+            setSearchResultVisible(false)
+        }
+
+        document.addEventListener("mousedown", handle)
+    })
 
     const fetchData = (value) => {
         fetch("https://jsonplaceholder.typicode.com/users")
