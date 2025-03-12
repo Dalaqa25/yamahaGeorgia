@@ -1,6 +1,5 @@
 .search-bar-container {
     position: relative;
-    z-index: 1;
 }
 
 .search-bar {
@@ -16,10 +15,11 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     opacity: 0;
     visibility: hidden;
-    z-index: -1;
+    z-index: 1;
 }
 
 .overlay.show {
@@ -50,12 +50,29 @@ input {
     width: 50%;
     border-radius: 8px;
     border: none;
+    z-index: 1;
 }
 
 .search-result-list {
-    margin-top: 20px;
-    width: 40%;
-    background-color: whitesmoke;
+    overflow-y: auto;
+    margin-left: 45%;
+    margin-top: 2vh;
+    position: absolute;
+    overflow-x: hidden;
+    background-color: #fff;
+    z-index: 2;
+    transition: all 0.3s;
+    border-radius: 8px;
+    padding: 10px;
+
+}
+
+.showResult {
+    opacity: 1;
+}
+
+.NotShowResult {
+    opacity: 0;
 }
 
 .search-result-item {
