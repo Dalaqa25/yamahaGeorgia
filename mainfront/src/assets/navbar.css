@@ -32,7 +32,8 @@ ul.scrolled {
 ul.switched {
     width: 100%;
     max-width: none;
-    margin: 0vh;
+    margin: 0px;
+    border-radius: 0px;
 }
 
 nav ul li a {

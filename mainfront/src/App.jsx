@@ -21,8 +21,8 @@ function App() {
       }
     };
 
-    navbarSwitch(); // Call the function to set the initial state
-  }, [location.pathname]); // Add location.pathname to re-run the effect when it changes
+    navbarSwitch(); 
+  }, [location.pathname]); 
 
   return (
     <>
