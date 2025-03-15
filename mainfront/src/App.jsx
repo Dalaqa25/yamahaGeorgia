@@ -5,6 +5,7 @@ import Home from "./routes/home";
 import Contact from "./routes/contact";
 import Motorcycles from "./routes/motorcycles";
 import Accessories from "./routes/accessories";
+import DetialsPage from './routes/DetialsPage'
 import './index.css';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="motorcycles" element={<Motorcycles />} />
           <Route path="accessories" element={<Accessories />} />
+          <Route path="product/:productId" element={<DetialsPage />}/>
         </Routes>
       </div>
     </>

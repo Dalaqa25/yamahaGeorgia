@@ -1,12 +1,18 @@
-import '../../src/assets/sale.css'
-import r6img from '../../src/assets/images/r6.png'
-import { useState } from 'react'
+import '../../src/assets/sale.css';
+import { useNavigate } from 'react-router-dom';
 
-export default function SalesList({name,status,image}) {
+export default function SalesList({ id, name, status, image }) {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/product/${id}`);
+    };
+
     return (
         <div className='main'>
             <div className='saleList-container'>
                 <div className='box' 
+                    onClick={handleClick}
                     onMouseEnter={() => setIshoverd(true)}
                     onMouseLeave={() => setIshoverd(false)}
                 >
@@ -21,5 +27,5 @@ export default function SalesList({name,status,image}) {
                 </div>
             </div> 
         </div>
-    )
+    );
 }
