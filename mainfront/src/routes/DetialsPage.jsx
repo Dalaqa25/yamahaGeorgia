@@ -36,6 +36,12 @@ export default function DetialsPage() {
                     </div>
                 </div>
             </div>
+            <div className="description">
+                <h2 style={{marginBottom:'20px'}}>Description</h2>
+                <p>
+                    The new headlight features a single bi-functional LED unit emitting both the low and high beam. Characterized by increased brightness (Class-D), the unit’s light weight and compactness has enabled the new highly aerodynamic fairing (cowling) design. To give the face a strong visual impact despite its compact size, LED position lights were placed on the outer extremes of the machine to not only keep the frontal projected area small but also to create the commanding appearance of a big bike.
+                </p>
+            </div>
         </div>
     )
 }

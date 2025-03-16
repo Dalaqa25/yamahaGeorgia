@@ -3,8 +3,10 @@
     margin-top: 15vh;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    gap: 20px;
 }
 
 .detials-container {
@@ -73,4 +75,19 @@ li {
 .imgcontainer img {
     width: 100%;
     filter: drop-shadow(7px 13px 5px rgba(0, 0, 0, 0.5));
+}
+
+.description {
+    max-width: 980px;
+    width: 50%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.description p {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
 }
