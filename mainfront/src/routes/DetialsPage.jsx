@@ -7,14 +7,17 @@ import transimitionsvg from '../assets/images/transimition.svg'
 import yearsvg from '../assets/images/year.svg'
 import shopsvg from '../assets/images/shop.svg'
 import r6 from '../assets/images/r6.png'
+import mailSVG from '../assets/images/mail.svg'
+import phoneSVG from '../assets/images/phone.svg'
 
 export default function DetialsPage() {
     const { productId } = useParams();
     const [isOverlayVisible, setOverlayVisible] = useState(false);
+    const [isContactBoxVisible, setisContactBoxVisible] = useState(false)
 
     return (
         <>
-        <div className={`overlay ${isOverlayVisible ? "show" : ""}`} onClick={() => setOverlayVisible(false)}></div>
+        <div className={`overlay ${isOverlayVisible ? "show" : ""}`} onClick={() => {setOverlayVisible(false); setisContactBoxVisible(false) }}></div>
             <div className="container">
                 <div className="detials-container">
                     <h2 style={{textAlign:'left'}}>
@@ -30,7 +33,7 @@ export default function DetialsPage() {
                             <li><img src={yearsvg} alt="" /> year: 2023</li>
                             <li><img src={shopsvg} alt="" /> In Stock</li>
                             <div style={{display:'flex', justifyContent:'center',alignItems:'center',textAlign:'center',flexDirection:'column', gap:'10px'}}>   
-                                <button onClick={() => setOverlayVisible(true)}>Contact Seller</button>
+                                <button onClick={() => {setOverlayVisible(true); setisContactBoxVisible(true)}}>Contact Seller</button>
                                 <p style={{color:'#000'}}>$5100</p>
                             </div>
                         </div>
@@ -45,6 +48,12 @@ export default function DetialsPage() {
                     <p>
                         The new headlight features a single bi-functional LED unit emitting both the low and high beam. Characterized by increased brightness (Class-D), the unit’s light weight and compactness has enabled the new highly aerodynamic fairing (cowling) design. To give the face a strong visual impact despite its compact size, LED position lights were placed on the outer extremes of the machine to not only keep the frontal projected area small but also to create the commanding appearance of a big bike.
                     </p>
+                </div>
+                <div className={`contact-box ${isContactBoxVisible ? "show" : ""}`}>
+                    <h2 style={{textAlign:'center'}}>contact</h2>
+                    <li style={{marginBottom:'10px', marginTop:'10px'}}><img src={mailSVG} alt="" /> g.dalaqishvili01@gmail.com</li>
+                    <hr />
+                    <li style={{marginTop:'10px',marginBottom:'10px'}}><img src={phoneSVG} alt="" />(+995) 598 24 14 75</li>
                 </div>
             </div>
         </>
