@@ -34,12 +34,15 @@
     border-radius: 12px;
     padding: 64px;
     border: none;
+    transition: all 0.3s;
 }
 
 .row {
     display: flex;
     justify-content: space-between;
+    gap: 35px;
     margin-top: 20px;
+    transition: all 0.3s;
 }
 
 .info {
@@ -83,7 +86,6 @@ li {
 
 .imgcontainer {
     object-fit: cover;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,8 +99,11 @@ li {
 
 .description {
     max-width: 980px;
+    min-width: 250px;
     width: 50%;
     background-color: #fff;
+    max-height: 30vh;
+    overflow-y: auto;
     padding: 30px;
     border-radius: 12px;
     margin-bottom: 30px;
@@ -112,7 +117,7 @@ li {
 }
 
 .contact-box {
-    position: absolute;
+    position: fixed;
     padding: 20px;
     background-color: #fff;
     top: 40%;
@@ -135,10 +140,10 @@ li {
 @media (max-width:1205px) {
     .info {
         gap: 15px;
-        font-size: 13px;
+        font-size: 14px;
     }
     .imgcontainer img {
-        width: 400px;
+        width: 430px;
     }
 }
 
@@ -149,5 +154,26 @@ li {
     }
     .imgcontainer img {
         position: absolute;
+    }
+}
+
+@media (max-width:760px) {
+    .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+    .imgcontainer img {
+        position:relative;
+        width: 100%;
+        margin-bottom: 20px;
+        width: 300px;
+    }
+    .info img {
+        width: 25px;
+    }
+    .detials-container {
+        padding: 30px;
     }
 }
