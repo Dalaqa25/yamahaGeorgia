@@ -1,30 +1,27 @@
 import '../../src/assets/sale.css';
-import { useNavigate } from 'react-router-dom';
+import r1 from '../assets/images/r1.png'
+import ProductBox from './productBox'
 
-export default function SalesList({ id, name, status, image }) {
-    const navigate = useNavigate();
+export default function SalesList() {
 
-    const handleClick = () => {
-        navigate(`/product/${id}`);
-    };
+    const motorcycles = [
+        { id: "1", name: "YZF R1", image: r1, price: '18000$', status: 'in stock' },
+        { id: "1", name: "YZF R6", image: r1, price: '18000$', status: 'in stock' },
+    ];
 
     return (
         <div className='main'>
             <div className='saleList-container'>
-                <div className='box' 
-                    onClick={handleClick}
-                    onMouseEnter={() => setIshoverd(true)}
-                    onMouseLeave={() => setIshoverd(false)}
-                >
-                    <img src={image} alt="r6img" />
-                    <div style={{display:'flex', marginTop:'1vh',gap:'10px'}}>
-                        <div className="itemName">
-                            <p style={{ color: "#000" }}>{name}</p>
-                            <hr />
-                            <p style={{ color: "#000",fontWeight:'bold' }}>{status}</p>
-                        </div>
-                    </div>
-                </div>
+                {motorcycles.map((motorcycle) => (
+                        <ProductBox
+                            key={motorcycle.id}
+                            id={motorcycle.id}
+                            name={motorcycle.name}
+                            image={motorcycle.image}
+                            price={motorcycle.price}
+                            status={motorcycle.status}
+                        />
+                ))}
             </div> 
         </div>
     );

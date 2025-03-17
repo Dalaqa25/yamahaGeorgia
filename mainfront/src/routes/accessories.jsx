@@ -6,7 +6,7 @@ export default function Accessories() {
     return (
         <div>
             <SearchBar placeholderText="Search for Accessories"/>
-            <SalesList name='AGV PISTA' status='In Stock' image={helmetImg}/>
+            <SalesList/>
         </div>
     )
 }
