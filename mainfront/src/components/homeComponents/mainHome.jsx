@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'
 
 export default function MainHome() {
 
-    const h2Text = ["faster.", "better.", "safely."]
+    const h2Text = ["faster.", "better.", "safer."]
     const [currentIndex, setCurrentIndex] = useState(0)
     const [fade, setFade] = useState(true)
 
@@ -46,8 +46,8 @@ export default function MainHome() {
 
             <div className='middlePart'>
                 <div className='middleTxt'>
-                    <h1>Less.</h1>
-                    <h1>More power</h1>
+                    <h1>Less Cost.</h1>
+                    <h1>More Power</h1>
                     <p>
                         Yamaha is renowned for its high-performance and 
                         reliable engines across motorcycles, marine applications, ATVs, and 

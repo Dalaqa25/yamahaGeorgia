@@ -72,12 +72,12 @@ input {
 }
 
 .showResult {
-    opacity: 1;
+    display: block;
     transform: translateY(0px);
 }
 
 .NotShowResult {
-    opacity: 0;
+    display: none;
 }
 
 .search-result-item {

@@ -11,8 +11,6 @@ export default function SearchBar({placeholderText}) {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [searchResultVisible, setSearchResultVisible] = useState(false);
 
-    const defaultSearchResult = ["YZF R1", "YZF R7", "YZF R6", "YZF R3"]
-
     useEffect(() => {
 
         let handle = () => {
@@ -85,13 +83,10 @@ export default function SearchBar({placeholderText}) {
                                 <img style={{width:'250px'}} src={noSearch} alt="" />
                             </div>
                         )
-                    ) : (
-                        defaultSearchResult.map((defaultResult, index) => (
-                            <div key={index} className='search-result-item'>
-                                {defaultResult}
-                            </div>
-                        ))
-                    )}
+                    ) : <div className='no-results-message' style={{textAlign:'center', fontWeight:'bolder', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+                         Start Searching
+                    <img style={{width:'250px'}} src={noSearch} alt="" />
+                </div>}
                 </div>
             </div>
             

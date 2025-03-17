@@ -2,7 +2,6 @@ import Navbar from "./components/navbar";
 import { Routes, Route, useLocation } from "react-router";
 import { useEffect } from "react";
 import Home from "./routes/home";
-import Contact from "./routes/contact";
 import Motorcycles from "./routes/motorcycles";
 import Accessories from "./routes/accessories";
 import DetialsPage from './routes/DetialsPage'
@@ -31,7 +30,6 @@ function App() {
       <div className={isHome ? "" : "bodyMain"}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="contact" element={<Contact />} />
           <Route path="motorcycles" element={<Motorcycles />} />
           <Route path="accessories" element={<Accessories />} />
           <Route path="product/:productId" element={<DetialsPage />}/>

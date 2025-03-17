@@ -9,10 +9,7 @@ export default function ProductBox({ id, name, status, image }) {
     };
 
     return (
-        <div className='box' 
-            onClick={handleClick}
-            onMouseEnter={() => setIshoverd(true)}
-            onMouseLeave={() => setIshoverd(false)}>
+        <div className='box' onClick={handleClick}>
             <img src={image} />
             <div style={{display:'flex', marginTop:'1vh',gap:'10px'}}>
                 <div className="itemName">

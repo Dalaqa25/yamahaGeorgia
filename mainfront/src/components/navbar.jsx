@@ -34,7 +34,6 @@ export default function Navbar() {
                 <div className="links">
                     <li><Link to="/accessories">Accessories</Link></li>
                     <li><Link to="/motorcycles">Motorcycles</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
                 </div>
             </ul>
         </nav>
