@@ -91,7 +91,7 @@ li {
 }
 
 .imgcontainer img {
-    width: 100%;
+    width: 500px;
     filter: drop-shadow(7px 13px 5px rgba(0, 0, 0, 0.5));
 }
 
@@ -130,4 +130,24 @@ li {
 
 .contact-box img {
     width: 35px;
+}
+
+@media (max-width:1205px) {
+    .info {
+        gap: 15px;
+        font-size: 13px;
+    }
+    .imgcontainer img {
+        width: 400px;
+    }
+}
+
+@media (max-width:960px) {
+    li {
+        gap: 7px;
+        text-align: left;
+    }
+    .imgcontainer img {
+        position: absolute;
+    }
 }
