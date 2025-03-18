@@ -3,31 +3,12 @@ import searchSVG from '../../src/assets/images/searchSVG.svg';
 import noSearch from '../../src/assets/images/noSearch.svg';
 import { useState, useEffect } from 'react';
 
-export default function SearchBar({ placeholderText }) {
+export default function SearchBar({ placeholderText,style }) {
     const [input, setInput] = useState('');
     const [results, setResults] = useState([]);
     const [placeholder, setPlaceholder] = useState(placeholderText);
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [searchResultVisible, setSearchResultVisible] = useState(false);
-    const [hideSearch, setHideSearch] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth <= 600) {
-                setHideSearch(true);
-            } else {
-                setHideSearch(false);
-            }
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        handleResize();
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
 
     useEffect(() => {
         const handle = () => {
@@ -67,7 +48,7 @@ export default function SearchBar({ placeholderText }) {
         <>
             <div className={`overlay ${isOverlayVisible ? "show" : ""}`} onClick={() => setOverlayVisible(false)}></div>
 
-            {!hideSearch && (
+            
                 <div className="search-bar-container">
                     <div className="search-bar">
                         <div className='search-bar-wrapper' onClick={() => setSearchResultVisible(!searchResultVisible)}>
@@ -113,7 +94,6 @@ export default function SearchBar({ placeholderText }) {
                         )}
                     </div>
                 </div>
-            )}
         </>
     );
 }

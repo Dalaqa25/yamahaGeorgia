@@ -52,28 +52,30 @@ input {
     border-radius: 8px;
     border: none;
     z-index: 1;
+    min-width: 300px;
 }
 
 .search-result-list {
     overflow-y: auto;
     width: 40%;
-    margin-left: 30%;
-    margin-right: 50%;
+    left: 50%;
+    transform: translateX(-50%);
     margin-top: 2vh;
-    position: absolute;
+    position: fixed;
     overflow-x: hidden;
     background-color: #fff;
     z-index: 2;
     transition: all 0.3s;
-    transform: translateY(20px);
+    transform: translate(-50%, 20px);
     border-radius: 8px;
     padding: 10px;
     max-height: 50vh;
+    min-width: 300px;
 }
 
 .showResult {
     display: block;
-    transform: translateY(0px);
+    transform: translate(-50%, 0px);
 }
 
 .NotShowResult {
@@ -98,7 +100,6 @@ input {
         opacity: 1;
     }
 }
-
 
 .no-results-message {
     opacity: 0;

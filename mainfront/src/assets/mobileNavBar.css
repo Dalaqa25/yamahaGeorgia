@@ -9,7 +9,11 @@
     width: 100%;
 }
 
-.menu {
+.MScontainer {
+    display: flex;
+}
+
+.MSbox {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 10px;
     background-color: #d0d0d0;
