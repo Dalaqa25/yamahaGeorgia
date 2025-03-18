@@ -1,0 +1,25 @@
+.mobNav {
+    margin-top: 20px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.menu {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid green;
+    padding: 10px;
+    background-color: #d0d0d0;
+    border: 8px;
+    gap: 5px;
+    font-size: 23px;
+    border-radius: 8px;
+}

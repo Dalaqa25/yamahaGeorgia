@@ -34,7 +34,7 @@ export default function MainHome() {
             </div>
             <div className='btnContainer'>
                 <Link className='motoBtn' to="/motorcycles">
-                        Shop Motorcycles
+                    Shop Motorcycles
                 </Link>
             </div>
 
@@ -54,7 +54,7 @@ export default function MainHome() {
                         power equipment, With decades of engineering expertise.
                     </p>
                 </div>
-                <img src={engineImg} alt="" />
+                <img src={engineImg} alt="Engine photo" />
             </div>
 
             

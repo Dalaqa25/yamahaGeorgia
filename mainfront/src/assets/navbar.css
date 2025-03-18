@@ -11,14 +11,13 @@ ul {
     align-items: center;
     justify-content: space-between;
     list-style-type: none; 
-    width: 85%;
     margin: 4vh;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 1280px;
     position: fixed;
-    width: 100%;
+    width: 85%;
     top: 0;
     z-index: 1000;
     transition: all 0.5s;
@@ -72,4 +71,3 @@ nav ul li a:hover {
     border-radius: 10px;
     transition: all 0.3s;
 }
-
