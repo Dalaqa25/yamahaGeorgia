@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 660) {
         setShowNavbar(false);
         setMobNavBar(true);
       } else {
@@ -37,23 +37,10 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    const navbarSwitch = () => {
-      const navbar = document.querySelector('ul');
-      if (location.pathname === "/motorcycles" || location.pathname === "/accessories" || location.pathname === "/contact") {
-        navbar.classList.add('switched');
-      } else {
-        navbar.classList.remove('switched');
-      }
-    };
-
-    navbarSwitch(); 
-  }, [location.pathname]); 
-
   return (
     <>
-      {mobNavBar && <MobileNavbar />} {/* Ensure correct component name */}
       {showNavbar && <Navbar />}
+      {mobNavBar && <MobileNavbar />} 
       <div className={isHome ? "" : "bodyMain"}>
         <Routes>
           <Route path="/" element={<Home />} />

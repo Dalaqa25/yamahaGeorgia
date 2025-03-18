@@ -9,5 +9,24 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
     width: 80%;
-    gap: 20px;
+    gap: 5px;
+    place-items: center;
+}
+
+@media (max-width: 1030px) {
+    .saleList-container {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+@media (max-width: 650px) {
+    .saleList-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 480px) {
+    .saleList-container {
+        grid-template-columns: repeat(1, 1fr); 
+    }
 }

@@ -28,13 +28,6 @@ ul.scrolled {
     margin: 1vh;
 }
 
-ul.switched {
-    width: 100%;
-    max-width: none;
-    margin: 0px;
-    border-radius: 0px;
-}
-
 nav ul li a {
     text-decoration: none;
     color: inherit; 

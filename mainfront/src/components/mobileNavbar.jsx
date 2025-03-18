@@ -7,12 +7,11 @@ export default function mobileNavBar() {
         <>
             <div className='mobNav'>
                 <img 
-                    style={{width:'85px'}} 
+                    style={{width:'70px',marginLeft:'20px', borderRadius:'8px'}} 
                     src={yamahaSVG} alt="yamaha photo" 
                 />
                 <div className='menu' style={{marginRight:'20px'}}>
                     <img style={{width:'30px'}}  src={menuSVG} alt="menu photo" /> 
-                    <span>Menu</span>
                 </div>
             </div>
         </>

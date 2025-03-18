@@ -63,7 +63,6 @@
 
 .mainImages img{
     width: 33%;
-    padding: 10px;
     filter: drop-shadow(7px 13px 5px rgba(0, 0, 0, 0.5));
 }
 
@@ -129,11 +128,10 @@
         font-size: 50px;
     }
     .mainImages {
-        margin-top: 20px;
+        margin-top: 10vh;
     }
     .mainImages img{
         width: 230px;
-        padding: 10px;
         filter: drop-shadow(2px 10px 5px rgba(0, 0, 0, 0.5));
     }
 }

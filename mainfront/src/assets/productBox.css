@@ -39,3 +39,31 @@
 .itemName {
     text-align: center;
 }
+
+@media (max-width:1250px) {
+    .box {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width:800px) {
+    .box {
+        width: 170px;
+        height: 170px;
+        padding: 5px 0px;
+    }
+}
+
+@media (max-width:600px) {
+    .box {
+        width: 180px;
+    }
+}
+
+@media (max-width:480px) {
+    .box {
+        width: 250px;
+        height: 250px;
+    }
+}

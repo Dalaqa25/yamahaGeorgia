@@ -6,6 +6,8 @@ export default function SalesList() {
 
     const motorcycles = [
         { id: "1", name: "YZF R1", image: r1, price: '18000$', status: 'in stock' },
+        { id: "2", name: "YZF R6", image: r1, price: '18000$', status: 'in stock' },
+        { id: "2", name: "YZF R6", image: r1, price: '18000$', status: 'in stock' },
         { id: "2", name: "YZF R6", image: r1, price: '18000$', status: 'in stock' }
     ];
 
