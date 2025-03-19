@@ -7,9 +7,13 @@ export default function MobileNavBar() {
     // navigation box state 
     const [showNavBox, setShowNavBox] = useState(false);
 
+    function toggle() {
+        setShowNavBox((prevState) => !prevState);
+    }
+    
+
     return (
         <>
-            {showNavBox && <div className='overlay' onClick={() => setShowNavBox(false)}></div>}
             <div className='mobNav'>
                 <img 
                     style={{width:'70px',marginLeft:'20px', borderRadius:'8px'}} 
@@ -17,7 +21,7 @@ export default function MobileNavBar() {
                 />
                 <div className='MScontainer'>
                     {/* adding on click event */}
-                    <div onClick={() => setShowNavBox(true)} className='MSbox' style={{marginRight:'20px'}}>
+                    <div onClick={toggle} className='MSbox' style={{marginRight:'20px'}}>
                         <img style={{width:'30px'}}  src={menuSVG} alt="menu photo" /> 
                     </div>
                 </div>
