@@ -1,4 +1,5 @@
 import Navbar from "./components/navbar";
+import Loader from "./components/loader";
 import { AnimatePresence, motion } from "framer-motion";
 import MobileNavbar from './components/mobileNavbar'; 
 import { Routes, Route, useLocation, Form } from "react-router";
@@ -20,6 +21,17 @@ const pageVariants = {
 function App() {
   const location = useLocation();
   const isHome = location.pathname === "/";
+
+  //loader
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    // Simulating a delay 
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000); // 2 seconds delay
+  }, []);
+
+
   //smoth scrolling
   useEffect(() => {
     const lenis = new Lenis({
@@ -69,7 +81,7 @@ function App() {
       {mobNavBar && <MobileNavbar />} 
       <div className={isHome ? "" : "bodyMain"}>
       <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
+     { loading ? <Loader /> : <Routes location={location} key={location.pathname}>
         {["/", "/motorcycles", "/accessories", "/product/:productId"].map((path) => (
           <Route
             key={path}
@@ -90,7 +102,7 @@ function App() {
             }
           />
         ))}
-      </Routes>
+      </Routes> }
     </AnimatePresence>
       </div>
     </>
