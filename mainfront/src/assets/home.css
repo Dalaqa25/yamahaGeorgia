@@ -59,6 +59,7 @@
     margin-bottom: 10vh;
     display: flex;
     justify-content: center;
+    padding: 20px;
 }
 
 .mainImages img {

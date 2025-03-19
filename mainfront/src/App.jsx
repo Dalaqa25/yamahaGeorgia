@@ -1,5 +1,6 @@
 import Navbar from "./components/navbar";
-import MobileNavbar from './components/mobileNavbar'; // Ensure correct import and naming
+import { AnimatePresence, motion } from "framer-motion";
+import MobileNavbar from './components/mobileNavbar'; 
 import { Routes, Route, useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import Home from "./routes/home";
@@ -7,6 +8,13 @@ import Motorcycles from "./routes/motorcycles";
 import Accessories from "./routes/accessories";
 import DetialsPage from './routes/DetialsPage';
 import './index.css';
+
+const pageVariants = {
+  initial: { opacity: 0, x: -100 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: 100 }
+};
+
 
 function App() {
   const location = useLocation();
@@ -41,12 +49,30 @@ function App() {
       {showNavbar && <Navbar />}
       {mobNavBar && <MobileNavbar />} 
       <div className={isHome ? "" : "bodyMain"}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="motorcycles" element={<Motorcycles />} />
-          <Route path="accessories" element={<Accessories />} />
-          <Route path="product/:productId" element={<DetialsPage />} />
-        </Routes>
+      <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {["/", "/motorcycles", "/accessories", "/product/:productId"].map((path) => (
+          <Route
+            key={path}
+            path={path}
+            element={
+              <motion.div
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={pageVariants}
+                transition={{ duration: 0.3 }}
+              >
+                {path === "/" && <Home />}
+                {path === "/motorcycles" && <Motorcycles />}
+                {path === "/accessories" && <Accessories />}
+                {path.startsWith("/product") && <DetialsPage />}
+              </motion.div>
+            }
+          />
+        ))}
+      </Routes>
+    </AnimatePresence>
       </div>
     </>
   );

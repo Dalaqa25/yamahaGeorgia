@@ -1,10 +1,11 @@
 import '../assets/mobileNavBar.css';
 import menuSVG from '../assets/images/menuSVG.svg';
 import yamahaSVG from '../assets/images/yamahaSVG.svg';
+import Xsvg from '../assets/images/X.svg'
 import { useState } from 'react';
+import { Link } from 'react-router';
 
 export default function MobileNavBar() {
-    // navigation box state 
     const [showNavBox, setShowNavBox] = useState(false);
 
     function toggle() {
@@ -20,14 +21,24 @@ export default function MobileNavBar() {
                     src={yamahaSVG} alt="yamaha photo" 
                 />
                 <div className='MScontainer'>
-                    {/* adding on click event */}
+
                     <div onClick={toggle} className='MSbox' style={{marginRight:'20px'}}>
-                        <img style={{width:'30px'}}  src={menuSVG} alt="menu photo" /> 
+                        <img 
+                            src={showNavBox ? Xsvg : menuSVG}
+                            
+                            alt="menu icon" 
+
+                            style={{ width: '30px', transition: '0.3s' }} 
+                        />
                     </div>
                 </div>
             </div>
 
-            {showNavBox && <div className='navBox'>Navigation Content</div>}
+            {showNavBox && <div className='navBox'>
+                <li className='mobLi'><Link to="/">Home</Link></li>
+                <li className='mobLi'><Link to="/accessories">Accessories</Link></li>
+                <li className='mobLi'><Link to="/motorcycles">Motorcycles</Link></li>
+            </div>}
         </>
     );
 }
