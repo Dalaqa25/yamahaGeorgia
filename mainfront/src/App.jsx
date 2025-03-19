@@ -1,13 +1,14 @@
 import Navbar from "./components/navbar";
 import { AnimatePresence, motion } from "framer-motion";
 import MobileNavbar from './components/mobileNavbar'; 
-import { Routes, Route, useLocation } from "react-router";
+import { Routes, Route, useLocation, Form } from "react-router";
 import { useEffect, useState } from "react";
 import Home from "./routes/home";
 import Motorcycles from "./routes/motorcycles";
 import Accessories from "./routes/accessories";
 import DetialsPage from './routes/DetialsPage';
 import './index.css';
+import Lenis from "lenis";
 
 const pageVariants = {
   initial: { opacity: 0, x: -100 },
@@ -19,6 +20,24 @@ const pageVariants = {
 function App() {
   const location = useLocation();
   const isHome = location.pathname === "/";
+  //smoth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      smooth: true, // Enables smooth scrolling
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      // Cleanup when component unmounts
+      lenis.destroy();
+    };
+  }, []);
 
   //navbar state
   const [showNavbar, setShowNavbar] = useState(true);
