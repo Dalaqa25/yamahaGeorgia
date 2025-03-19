@@ -61,9 +61,14 @@
     justify-content: center;
 }
 
-.mainImages img{
+.mainImages img {
     width: 33%;
     filter: drop-shadow(7px 13px 5px rgba(0, 0, 0, 0.5));
+    transition: all 0.3s;
+}
+
+.mainImages img:hover {
+    scale: 1.1;
 }
 
 .middlePart {

@@ -17,7 +17,7 @@ export default function DetialsPage() {
 
     return (
         <>
-        <div className={`overlay ${isOverlayVisible ? "show" : ""}`} onClick={() => {setOverlayVisible(false); setisContactBoxVisible(false) }}></div>
+        <div className={`overlay ${isOverlayVisible ? "show" : ""}`} onClick={() => { setOverlayVisible(false); setisContactBoxVisible(false) }}></div>
             <div className="container">
                 <div className="detials-container">
                     <h2 style={{textAlign:'left'}}>

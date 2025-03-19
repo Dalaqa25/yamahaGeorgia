@@ -20,3 +20,19 @@
     display: flex;
     border-radius: 8px;
 }
+
+.navBox {
+    width: 250px;
+    height: 250px;
+    background-color: green;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1; /* Ensure it is above other content */
+}
