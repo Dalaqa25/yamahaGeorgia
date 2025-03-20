@@ -11,7 +11,6 @@ import mailSVG from '../assets/images/mail.svg'
 import phoneSVG from '../assets/images/phone.svg'
 
 export default function DetialsPage() {
-    const { productId } = useParams();
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [isContactBoxVisible, setisContactBoxVisible] = useState(false)
 
