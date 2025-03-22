@@ -12,16 +12,22 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors())
-app.use(helmet()) // this will help us to secure a application
+app.use(cors());
+app.use(helmet()); // this will help us to secure a application
 app.use(morgan("dev")); // log requests
 
-//get request
-app.use("/api/products", productRoutes)
+// Log incoming requests
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+});
+
+// Use the productRoutes router
+app.use("/api/products", productRoutes);
 
 async function initDB() {
     try {
-        await sql `
+        await sql`
             CREATE TABLE IF NOT EXISTS motorcycles (
                 id SERIAL PRIMARY KEY,
                 brand VARCHAR(255) NOT NULL,
@@ -35,15 +41,15 @@ async function initDB() {
                 description TEXT NOT NULL,
                 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
-        `
-        console.log("Database initialized!")
-    } catch(error) {
-        console.log("error while initDB", error)
+        `;
+        console.log("Database initialized!");
+    } catch (error) {
+        console.log("Error while initializing database:", error);
     }
 }
 
 initDB().then(() => {
     app.listen(PORT, () => {
         console.log("Server running on port " + PORT);
-    })    
-})  
+    });
+});
