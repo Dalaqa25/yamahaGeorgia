@@ -6,7 +6,7 @@ import { Routes, Route, useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import Home from "./routes/home";
 import Motorcycles from "./routes/motorcycles";
-import Accessories from "./routes/accessories";
+import Accessories from "./routes/accessories.jsx";
 import DetialsPage from './routes/DetialsPage';
 import './index.css';
 import Lenis from "lenis";
