@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import '../../src/assets/detials.css';
 import mailSVG from '../assets/images/mail.svg';
+import shopsvg from '../assets/images/shop.svg';
 import phoneSVG from '../assets/images/phone.svg';
 
 export default function AccessoryDetailsPage() {
@@ -53,8 +54,8 @@ export default function AccessoryDetailsPage() {
                     <div className="row">
                         <div className="info">
                             <li><img src={accessory.image} alt="" /> {accessory.size}</li>
-                            <li><img src={accessory.image} alt="" /> {accessory.price}</li>
-                            <li><img src={accessory.image} alt="" /> {accessory.inStock ? 'In Stock' : 'Out of Stock'}</li>
+                            <li><img src={accessory.image} alt="" /> {accessory.brand}</li>
+                            <li><img src={shopsvg} alt="" /> {accessory.inStock ? 'In Stock' : 'Out of Stock'}</li>
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', flexDirection: 'column', gap: '10px' }}>
                                 <button onClick={() => { setOverlayVisible(true); setisContactBoxVisible(true) }}>Contact Seller</button>
                                 <p style={{ color: '#000' }}>${accessory.price}</p>
