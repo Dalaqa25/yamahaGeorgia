@@ -2,7 +2,7 @@ import Navbar from "./components/navbar";
 import Loader from "./components/loader";
 import { AnimatePresence, motion } from "framer-motion";
 import MobileNavbar from './components/mobileNavbar'; 
-import { Routes, Route, useLocation, Form } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import Home from "./routes/home";
 import Motorcycles from "./routes/motorcycles";
@@ -17,7 +17,6 @@ const pageVariants = {
   exit: { opacity: 0, x: 100 }
 };
 
-
 function App() {
   const location = useLocation();
   const isHome = location.pathname === "/";
@@ -31,8 +30,7 @@ function App() {
     }, 2000); // 2 seconds delay
   }, []);
 
-
-  //smoth scrolling
+  //smooth scrolling
   useEffect(() => {
     const lenis = new Lenis({
       smooth: true, // Enables smooth scrolling
@@ -80,30 +78,68 @@ function App() {
       {showNavbar && <Navbar />}
       {mobNavBar && <MobileNavbar />} 
       <div className={isHome ? "" : "bodyMain"}>
-      <AnimatePresence mode="wait">
-     { loading ? <Loader /> : <Routes location={location} key={location.pathname}>
-        {["/", "/motorcycles", "/accessories", "/product/:productId"].map((path) => (
-          <Route
-            key={path}
-            path={path}
-            element={
-              <motion.div
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                variants={pageVariants}
-                transition={{ duration: 0.3 }}
-              >
-                {path === "/" && <Home />}
-                {path === "/motorcycles" && <Motorcycles />}
-                {path === "/accessories" && <Accessories />}
-                {path.startsWith("/product") && <DetialsPage />}
-              </motion.div>
-            }
-          />
-        ))}
-      </Routes> }
-    </AnimatePresence>
+        <AnimatePresence mode="wait">
+          {loading ? <Loader /> : (
+            <Routes location={location} key={location.pathname}>
+              <Route
+                path="/"
+                element={
+                  <motion.div
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    variants={pageVariants}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Home />
+                  </motion.div>
+                }
+              />
+              <Route
+                path="/motorcycles"
+                element={
+                  <motion.div
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    variants={pageVariants}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Motorcycles />
+                  </motion.div>
+                }
+              />
+              <Route
+                path="/accessories"
+                element={
+                  <motion.div
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    variants={pageVariants}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Accessories />
+                  </motion.div>
+                }
+              />
+              <Route
+                path="/product/:id"
+                element={
+                  <motion.div
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    variants={pageVariants}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <DetialsPage />
+                  </motion.div>
+                }
+              />
+            </Routes>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );

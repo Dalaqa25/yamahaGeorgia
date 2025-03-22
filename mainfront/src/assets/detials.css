@@ -27,7 +27,7 @@
     visibility: visible;
 }
 
-.detials-container {
+.details-container {
     max-width: 980px;
     width: 70%;
     background-color: #fff;
@@ -46,7 +46,6 @@
 }
 
 .info {
-
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -94,7 +93,6 @@ li {
 
 .imgcontainer img {
     width: 500px;
-    filter: drop-shadow(7px 13px 5px rgba(0, 0, 0, 0.5));
 }
 
 .description {
@@ -173,7 +171,7 @@ li {
     .info img {
         width: 25px;
     }
-    .detials-container {
+    .details-container {
         padding: 30px;
     }
 }
