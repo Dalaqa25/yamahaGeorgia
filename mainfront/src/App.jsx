@@ -8,6 +8,7 @@ import Home from "./routes/home";
 import Motorcycles from "./routes/motorcycles";
 import Accessories from "./routes/accessories.jsx";
 import DetialsPage from './routes/DetialsPage';
+import AccessoryDetailsPage from "./routes/accesoriesDetials.jsx";
 import './index.css';
 import Lenis from "lenis";
 
@@ -123,6 +124,7 @@ function App() {
                   </motion.div>
                 }
               />
+               <Route path="/accessory/:id" element={<AccessoryDetailsPage />} />
               <Route
                 path="/product/:id"
                 element={

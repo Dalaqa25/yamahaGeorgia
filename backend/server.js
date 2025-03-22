@@ -26,6 +26,7 @@ app.use((req, res, next) => {
 // Use the productRoutes router
 app.use("/api/products", productRoutes);
 
+// Use the accessoryRoutes router
 app.use("/api/accessories", accessoryRoutes);
 
 async function initDB() {
@@ -46,18 +47,18 @@ async function initDB() {
             )
         `;
         await sql`
-        CREATE TABLE IF NOT EXISTS accessories (
-            id SERIAL PRIMARY KEY,
-            brand VARCHAR(255) NOT NULL,
-            name VARCHAR(255) NOT NULL,
-            image VARCHAR(255) NOT NULL,
-            price DECIMAL(10, 2) NOT NULL,
-            size VARCHAR(255) NOT NULL,
-            inStock BOOLEAN NOT NULL,
-            description TEXT NOT NULL,
-            createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    `;
+            CREATE TABLE IF NOT EXISTS accessories (
+                id SERIAL PRIMARY KEY,
+                brand VARCHAR(255) NOT NULL,
+                name VARCHAR(255) NOT NULL,
+                image VARCHAR(255) NOT NULL,
+                price DECIMAL(10, 2) NOT NULL,
+                size VARCHAR(255) NOT NULL,
+                inStock BOOLEAN NOT NULL,
+                description TEXT NOT NULL,
+                createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        `;
         console.log("Database initialized!");
     } catch (error) {
         console.log("Error while initializing database:", error);

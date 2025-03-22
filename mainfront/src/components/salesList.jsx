@@ -13,6 +13,7 @@ export default function SalesList({ motorcycles }) {
                         image={motorcycle.image}
                         price={motorcycle.price}
                         status={motorcycle.inStock ? 'In Stock' : 'Out of Stock'}
+                        type="motorcycle"
                     />
                 ))}
             </div>

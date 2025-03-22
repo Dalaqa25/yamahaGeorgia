@@ -24,7 +24,7 @@ export default function Motorcycles() {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div>loading</div>;
     }
 
     if (error) {
