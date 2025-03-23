@@ -13,8 +13,13 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors());
-app.use(helmet()); // this will help us to secure a application
+app.use(cors({
+    origin: ['https://yamahageo.netlify.app', 'http://localhost:5173'],
+    credentials: true
+}));
+app.use(helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
 app.use(morgan("dev")); // log requests
 
 // Log incoming requests
