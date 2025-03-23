@@ -69,9 +69,20 @@ async function initDB() {
         console.log("Error while initializing database:", error);
     }
 }
+
 // Root route to handle requests to "/"
 app.get("/", (req, res) => {
     res.send("Server is running!");
+});
+
+// Test database connection
+app.get("/test-db", async (req, res) => {
+    try {
+        const result = await sql`SELECT 1+1 AS result`;
+        res.status(200).json({ success: true, data: result });
+    } catch (error) {
+        res.status(500).json({ success: false, message: "Database connection failed", error });
+    }
 });
 
 initDB().then(() => {
