@@ -64,6 +64,10 @@ async function initDB() {
         console.log("Error while initializing database:", error);
     }
 }
+// Root route to handle requests to "/"
+app.get("/", (req, res) => {
+    res.send("Server is running!");
+});
 
 initDB().then(() => {
     app.listen(PORT, () => {
