@@ -9,6 +9,7 @@ import Motorcycles from "./routes/motorcycles";
 import Accessories from "./routes/accessories.jsx";
 import DetialsPage from './routes/DetialsPage';
 import AccessoryDetailsPage from "./routes/accesoriesDetials.jsx";
+import AdminPanel from "./routes/adminPanel";
 import './index.css';
 import Lenis from "lenis";
 
@@ -28,7 +29,7 @@ function App() {
     // Simulating a delay 
     setTimeout(() => {
       setLoading(false);
-    }, 2000); // 2 seconds delay
+    }, 3000); // 3 seconds delay
   }, []);
 
   //smooth scrolling
@@ -138,6 +139,19 @@ function App() {
                     <DetialsPage />
                   </motion.div>
                 }
+              />
+              <Route path="/admin" 
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={{ duration: 0.3 }}
+                >
+                  <AdminPanel />
+                </motion.div>
+              }
               />
             </Routes>
           )}
