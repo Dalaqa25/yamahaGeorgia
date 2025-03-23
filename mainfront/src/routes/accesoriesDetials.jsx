@@ -17,7 +17,7 @@ export default function AccessoryDetailsPage() {
     useEffect(() => {
         const fetchAccessory = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/accessories/${id}`);
+                const response = await axios.get(`https://yamahageorgia-backend.onrender.com/api/accessories/${id}`);
                 setAccessory(response.data.data);
                 setLoading(false);
             } catch (error) {

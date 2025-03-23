@@ -11,7 +11,7 @@ export default function Motorcycles() {
     useEffect(() => {
         const fetchMotorcycles = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/api/products');
+                const response = await axios.get('https://yamahageorgia-backend.onrender.com/api/products');
                 setMotorcycles(response.data.data);
                 setLoading(false);
             } catch (error) {
