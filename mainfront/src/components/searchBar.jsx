@@ -33,22 +33,25 @@ export default function SearchBar({ placeholderText, id }) {
     }, []);
 
     const fetchData = (value) => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then((response) => response.json())
+        fetch("https://yamahageorgia-backend.onrender.com/api/products")
+            .then(response => response.json())
             .then(json => {
-                const filteredData = json.filter((user) => {
-                    return value &&
-                        user &&
-                        user.name &&
-                        user.name.toLowerCase().includes(value.toLowerCase());
-                });
-                setResults(filteredData);
+                console.log("Fetched Data:", json);
+                if (json.success && Array.isArray(json.data)) {
+                    const filteredData = json.data.filter(item =>
+                        item.name.toLowerCase().includes(value.toLowerCase())
+                    );
+                    setResults(filteredData);
+                } else {
+                    console.error("Invalid data format or unsuccessful response");
+                    setResults([]);
+                }
             })
             .catch(error => {
-                console.error('Error fetching data:', error);
+                console.error("Error fetching data:", error);
             });
     };
-
+    
     const handleChange = (value) => {
         setInput(value);
         fetchData(value);
@@ -86,7 +89,12 @@ export default function SearchBar({ placeholderText, id }) {
                         results.length > 0 ? (
                             results.map((result, index) => (
                                 <div onClick={() => handleClick(result.id)} key={index} className="search-result-item">
-                                    {result.name}
+                                    <div className='search-result-item-wrapper'>
+                                    <div className='search-result-item-image'>
+                                        <img src={result.image}/>
+                                    </div>
+                                        <span>{result.name}</span>
+                                    </div>
                                 </div>
                             ))
                         ) : (
