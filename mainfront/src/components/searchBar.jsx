@@ -13,11 +13,12 @@ export default function SearchBar({ placeholderText, id }) {
     const navigate = useNavigate();
     const searchResultRef = useRef(null);
 
-    const handleClick = (id) => {
-        navigate(`/product/${id}`);
+    const handleClick = (id, type) => {
+        const url = type === 'accessory' ? `/accessory/${id}` : `/product/${id}`;
+        navigate(url);
     };
 
-    // click outside the box 
+    // Click outside the box
     useEffect(() => {
         const handle = (event) => {
             if (searchResultRef.current && !searchResultRef.current.contains(event.target)) {
@@ -33,25 +34,36 @@ export default function SearchBar({ placeholderText, id }) {
     }, []);
 
     const fetchData = (value) => {
-        fetch("https://yamahageorgia-backend.onrender.com/api/products")
-            .then(response => response.json())
-            .then(json => {
-                console.log("Fetched Data:", json);
-                if (json.success && Array.isArray(json.data)) {
-                    const filteredData = json.data.filter(item =>
-                        item.name.toLowerCase().includes(value.toLowerCase())
-                    );
-                    setResults(filteredData);
-                } else {
-                    console.error("Invalid data format or unsuccessful response");
-                    setResults([]);
+        const api1 = "https://yamahageorgia-backend.onrender.com/api/accessories";
+        const api2 = "https://yamahageorgia-backend.onrender.com/api/products";
+
+        Promise.all([fetch(api1), fetch(api2)])
+            .then(responses => Promise.all(responses.map(response => response.json())))
+            .then(dataArray => {
+                const [accessoriesData, motorcyclesData] = dataArray;
+
+                let combinedData = [];
+
+                if (accessoriesData.success && Array.isArray(accessoriesData.data)) {
+                    combinedData = combinedData.concat(accessoriesData.data.map(item => ({ ...item, type: 'accessory' })));
                 }
+
+                if (motorcyclesData.success && Array.isArray(motorcyclesData.data)) {
+                    combinedData = combinedData.concat(motorcyclesData.data.map(item => ({ ...item, type: 'product' })));
+                }
+
+                const filteredData = combinedData.filter(item =>
+                    item.name.toLowerCase().includes(value.toLowerCase())
+                );
+
+                setResults(filteredData);
             })
             .catch(error => {
                 console.error("Error fetching data:", error);
+                setResults([]);
             });
     };
-    
+
     const handleChange = (value) => {
         setInput(value);
         fetchData(value);
@@ -88,11 +100,11 @@ export default function SearchBar({ placeholderText, id }) {
                     {input.trim() !== "" ? (
                         results.length > 0 ? (
                             results.map((result, index) => (
-                                <div onClick={() => handleClick(result.id)} key={index} className="search-result-item">
+                                <div onClick={() => handleClick(result.id, result.type)} key={index} className="search-result-item">
                                     <div className='search-result-item-wrapper'>
-                                    <div className='search-result-item-image'>
-                                        <img src={result.image}/>
-                                    </div>
+                                        <div className='search-result-item-image'>
+                                            <img src={result.image} alt={result.name} />
+                                        </div>
                                         <span>{result.name}</span>
                                     </div>
                                 </div>
