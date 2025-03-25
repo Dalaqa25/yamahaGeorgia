@@ -33,7 +33,7 @@ export default function AdminPanel() {
         e.preventDefault();
     
         // Simple check for username and password
-        if (username === "yamahaAdmin" && password === "tatogiorgi123") {
+        if (username === "1" && password === "1") {
           setIsAuthenticated(true);
         } else {
           setAttempts((prev) => prev + 1);

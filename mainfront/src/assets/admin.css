@@ -1,8 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 .admin-login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .admin-login-form {
@@ -33,3 +36,28 @@
 .admin-login-button:hover {
     background-color: #333333;
 }  
+
+/* h2text animations */
+.admin-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 78%;
+    gap: 5vh;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
+  
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.admin-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
