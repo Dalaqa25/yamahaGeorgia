@@ -61,3 +61,68 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.items-list {
+    margin-top: 2vh;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 5vh;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.actionBtn {
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: medium;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.listRow {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.listRow img {
+    flex-shrink: 0;
+}
+
+.listRow strong {
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+.listRow div {
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+/* Custom scrollbar styles */
+.listRow::-webkit-scrollbar {
+    height: 4px; /* Adjust the height of the scrollbar */
+}
+
+.listRow::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+    border-radius: 10px;
+}
+
+.listRow::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px;
+}
+
+.listRow::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar thumb on hover */
+}
