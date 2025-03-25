@@ -25,6 +25,8 @@ export default function AdminContent() {
     const [motorcycles, setMotorcycles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [searchInput, setSearchInput] = useState('');
+    const [filteredData, setFilteredData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,8 +38,15 @@ export default function AdminContent() {
                 console.log("Motorcycles Response:", motorcyclesResponse);
 
                 // Adjust data access based on actual structure
-                setAccessories(accessoriesResponse.data.data || accessoriesResponse.data);
-                setMotorcycles(motorcyclesResponse.data.data || motorcyclesResponse.data);
+                const accessoriesData = accessoriesResponse.data.data || accessoriesResponse.data;
+                const motorcyclesData = motorcyclesResponse.data.data || motorcyclesResponse.data;
+
+                setAccessories(accessoriesData);
+                setMotorcycles(motorcyclesData);
+                setFilteredData([
+                    ...accessoriesData.map(item => ({ ...item, type: 'accessory' })),
+                    ...motorcyclesData.map(item => ({ ...item, type: 'motorcycle' }))
+                ]);
                 setLoading(false);
             } catch (err) {
                 console.error("Error fetching data:", err);
@@ -58,6 +67,14 @@ export default function AdminContent() {
         ...motorcycles.map(item => ({ ...item, type: 'motorcycle' }))
     ];
 
+    const handleChange = (value) => {
+        setSearchInput(value);
+        const filtered = combinedData.filter(item =>
+            item.name.toLowerCase().includes(value.toLowerCase())
+        );
+        setFilteredData(filtered);
+    };
+
     return (
         <>
             <div className='admin-content'>
@@ -70,30 +87,34 @@ export default function AdminContent() {
                             {h2Text[currentIndex]} your data
                         </h2>
                     </div>
+
+                    {/* Search form */}
                     <form action="">
-                        <input style={{ textAlign: 'center', width: '100%' }} placeholder='search item' type="text" />
+                        <input
+                            style={{ textAlign: 'center', width: '100%' }}
+                            placeholder='search item'
+                            type="text"
+                            value={searchInput}
+                            onChange={(e) => handleChange(e.target.value)}
+                        />
                     </form>
                     <div>
-                        <div style={{display:'flex', justifyContent:'space-between', marginBottom:'10px'}}>
-                            <h2 style={{fontFamily: 'Atkinson Hyperlegible Mono '}}>All Items</h2>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                            <h2 style={{ fontFamily: 'Atkinson Hyperlegible Mono ' }}>All Items</h2>
                             <button className='actionBtn'>Create new</button>
                         </div>
 
                         <hr />
+
                         <div className='items-list'>
-                            {combinedData.map((item, index) => (
+                            {filteredData.map((item, index) => (
                                 <li key={index} style={{ marginTop: '10px' }}>
                                     <div className='listRow'>
-
-                                        <img src={item.image} alt={item.name} style={{ width: '100px'}} />
-
-
+                                        <img src={item.image} alt={item.name} style={{ width: '100px' }} />
                                         <strong>{item.name || "No Name"}</strong> ({item.type})
-  
                                         Price: ${item.price}
-
                                     </div>
- 
+
                                     <button className='actionBtn'>delete</button>
                                     <button className='actionBtn'>Edit</button>
                                 </li>
